@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const BillList = () => {
     const [bills, setBills] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBills = async () => {
@@ -18,8 +20,7 @@ const BillList = () => {
     }, []);
 
     const handleEdit = (billId) => {
-        // Logic to navigate to the edit page or open an edit modal
-        console.log('Edit bill with id:', billId);
+        navigate(`/edit-bill/${billId}`);
     };
 
     const handleDelete = async (billId) => {
